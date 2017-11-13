@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Pacifico&amp;subset=latin-ext" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Drowing App</title>
+</head>
+<body>
+	<section class="main">
+		<h2 class="h2">Drawing App</h2>
+		<div class="container">
+			<div id="picture-wrap">
+				<canvas id="draw" width="56%" height="100%"></canvas>
+			</div>
+		</div>
+		<div class="buttons">
+			<button class="erase button"><span id="erase">Erase</span></button>
+			<button class="save button"><span id="save">Save</span></button>
+			<button class="reset button"><span id="reset">Reset</span></button>
+		</div>
+		<div class="inputs">
+			<div class="input"><div id ="color"></div></div>
+			<input type="range" min="0" max="20" step="1" value="6" class="input" id="slider"> 
+			<div class="input"><div id="circle"></div></div>
+		</div>
+		<!-- COLOR CHOOSING -->
+		<div class="to-choose clearfix">
+			<div class="color-item"	data-color="#cdcdcd"></div>
+			<div class="color-item"	data-color="#0000ff"></div>
+			<div class="color-item"	data-color="#000000"></div>
+			<div class="color-item"	data-color="#ff0000"></div>
+			<div class="color-item"	data-color="#10ff00"></div>
+			<div class="color-item"	data-color="#fb00ff"></div>
+		</div>
+	</section>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<!-- <script src="https://use.fontawesome.com/3b86389fcc.js"></script> -->
+	<script src="js/app.js"></script>
+</body>
+</html>
