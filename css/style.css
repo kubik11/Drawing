@@ -128,22 +128,34 @@ li{
 	transform: translateY(-50%);
 	width: 70px;
 	z-index: 2;
+	text-align: center;
+	background-color: #cdcdcd;
+	opacity: 0.8;
+	padding: 10px;	
 }
 .main .inputs .input{
 	display: block;
-	margin-bottom: 20px;
+	
+
 }
 .main .inputs #circle{
 	width: 5px;
 	height: 5px;
 	background-color: #000;
 	border-radius: 50%;
+	margin: 0px 5px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 .main .inputs #color{
-	width: 20px;
-	height: 20px;
+	width: 30px;
+	height: 30px;
 	border: 1px solid #cdcdcd;
 	background-color: red;
+	border: 1px solid #fff;
+	margin-bottom: 85px;
 }
 .main .inputs #slider{
 	width: 70px;
@@ -157,8 +169,16 @@ li{
 	padding: 50px;
 	border: 3px solid #fff;
 	text-align: center;
-	background-color: #fff;
-	opacity: 0.8;
+	background: linear-gradient(0deg, blue 50%, white);
+	opacity: 0.9;
+}
+.wrap-to-choose{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
 }
 .to-choose .color-item{
 	width: 30px;
@@ -166,4 +186,5 @@ li{
 	display: inline-block;
 	float: left;
 	margin-right: 10px;
+	border: 1px solid #fff;
 }
