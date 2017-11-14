@@ -3,6 +3,7 @@ $(document).ready(function(){
 	var circle = $('#circle');
 	var colorInput = $('#color');
 	var rangeInput = $('#slider');
+	var canvas = document.getElementById('draw');
 	var ctx;
 	$('#draw').css({
 		width: '100%',
@@ -41,7 +42,12 @@ $(document).ready(function(){
 		});
 	});
 
-
+	ctx = canvas.getContext('2d');
+		 ctx.fillRect(10, 10, 20, 20);
+		 ctx.beginPath();
+		 ctx.moveTo(30, 30);
+		 ctx.lineTo(50, 50);
+		 ctx.stroke();
 });//ready function
 
 })()//I.I.F
