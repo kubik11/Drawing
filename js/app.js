@@ -3,6 +3,8 @@ $(document).ready(function(){
 	var circle = $('#circle');
 	var colorInput = $('#color');
 	var rangeInput = $('#slider');
+	var canvasContainer = document.getElementById('draw');
+	var ctx;
 	$('#draw').css({
 		width: '100%',
 		height: '100%',
@@ -37,6 +39,11 @@ $(document).ready(function(){
 			height: val+'px'
 		});
 	});
+
+	// Canvas testing
+	ctx = canvasContainer.getContext("2d");
+	ctx.fillStyle = 'rgb(200, 0, 0)';
+    ctx.fillRect(0, 0, 5, 5);
 });//ready function
 
 })()//I.I.F
