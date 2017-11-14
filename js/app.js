@@ -4,10 +4,13 @@ $(document).ready(function(){
 	var colorInput = $('#color');
 	var rangeInput = $('#slider');
 	var canvas = document.getElementById('draw');
+	var picture = document.querySelector('#picture-wrap');
 	var ctx;
+	var drowMode = false;
+	var paintMode = true;
 	$('#draw').css({
-		width: '100%',
-		height: '100%',
+		width: '716',
+		height: '500',
 		position: 'relative',
 		zIndex: '2'
 	});
@@ -41,13 +44,41 @@ $(document).ready(function(){
 			height: val+'px'
 		});
 	});
-
+	// get canvas context
 	ctx = canvas.getContext('2d');
-		 ctx.fillRect(10, 10, 20, 20);
-		 ctx.beginPath();
-		 ctx.moveTo(30, 30);
-		 ctx.lineTo(50, 50);
-		 ctx.stroke();
+	// object wich stores coordinats
+	ctx.strokeStyle = 'red';
+	ctx.lineWidth = 3;
+	var point = {
+		x: 0,
+		y: 0
+	}
+	// event listener on the picture block mousedown
+	picture.addEventListener('mousedown', function(e){
+		drowMode = true;
+		point.x = e.pageX - this.offsetLeft;
+		point.y = e.pageY - this.offsetTop;
+		console.log(typeof(point.x));
+		console.log(point.y);
+		ctx.beginPath();
+	 	ctx.moveTo(point.x, point.y);
+	});
+	// event listener on the picture block mousemove
+	picture.addEventListener('mousemove', function(e){
+		point.x = e.pageX - this.offsetLeft;
+		point.y = e.pageY - this.offsetTop;
+		if(drowMode != false){
+			console.log(point.y);
+			ctx.lineTo(point.x, point.y);
+			ctx.stroke();
+			console.log('s');
+		}	 	
+	});
+	// event listener on the picture block mousedown
+	picture.addEventListener('mouseup', function(){
+		drowMode = false;
+		console.log('stop');
+	});
 });//ready function
 
 })()//I.I.F
