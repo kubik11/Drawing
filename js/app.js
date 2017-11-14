@@ -3,9 +3,13 @@ $(document).ready(function(){
 	var circle = $('#circle');
 	var colorInput = $('#color');
 	var rangeInput = $('#slider');
+	var canvas = document.getElementById('draw');
+	var ctx;
 	$('#draw').css({
 		width: '100%',
 		height: '100%',
+		position: 'relative',
+		zIndex: '2'
 	});
 	// set the color in color bar
 	$(".color-item").each(function(i, el){
@@ -37,6 +41,13 @@ $(document).ready(function(){
 			height: val+'px'
 		});
 	});
+
+	ctx = canvas.getContext('2d');
+		 ctx.fillRect(10, 10, 20, 20);
+		 ctx.beginPath();
+		 ctx.moveTo(30, 30);
+		 ctx.lineTo(50, 50);
+		 ctx.stroke();
 });//ready function
 
 })()//I.I.F

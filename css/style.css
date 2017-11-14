@@ -81,6 +81,7 @@ li{
 	width: 717px;
 	max-width: 717px;
 	margin: 40px auto;
+	z-index: 0;
 }
 #picture-wrap::after{
 	background-image: url('../img/molbert.png');
