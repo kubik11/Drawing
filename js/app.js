@@ -8,9 +8,13 @@ $(document).ready(function(){
 	var ctx;
 	var drowMode = false;
 	var paintMode = true;
+	// get canvas context
+	ctx = canvas.getContext('2d');
+	ctx.strokeStyle = 'red';
+	ctx.lineWidth = 3;
 	$('#draw').css({
-		width: '716',
-		height: '500',
+		// width: '716',
+		// height: '500',
 		position: 'relative',
 		zIndex: '2'
 	});
@@ -28,9 +32,9 @@ $(document).ready(function(){
 			if(e.target.classList.contains('color-item')){	
 				var color;
 				color = e.target.dataset.color;
-				console.log(e);
 				colorInput.css('background-color', color).attr({"data-color": color});
-				circle.css('background-color', color)
+				circle.css('background-color', color);
+				ctx.strokeStyle = color;
 			}else{
 				$('.wrap-to-choose').fadeOut();
 			}
@@ -40,35 +44,37 @@ $(document).ready(function(){
 	rangeInput.change(function(){
 		var val = $(this).val();
 		circle.css({
-			width: val+'px',
-			height: val+'px'
+			width: val + 'px',
+			height: val + 'px'
 		});
+		ctx.lineWidth = val;
 	});
-	// get canvas context
-	ctx = canvas.getContext('2d');
+	
 	// object wich stores coordinats
-	ctx.strokeStyle = 'red';
-	ctx.lineWidth = 3;
 	var point = {
 		x: 0,
 		y: 0
 	}
 	// event listener on the picture block mousedown
 	picture.addEventListener('mousedown', function(e){
+		var off = this.getBoundingClientRect();
+		// console.log(off.top);
 		drowMode = true;
-		point.x = e.pageX - this.offsetLeft;
-		point.y = e.pageY - this.offsetTop;
-		console.log(typeof(point.x));
+		point.x = e.pageX - off.left;
+		point.y = e.pageY - off.top - window.pageYOffset;
 		console.log(point.y);
+		console.log('отступ');
+		console.log(point.x);
 		ctx.beginPath();
 	 	ctx.moveTo(point.x, point.y);
+	 	ctx.lineTo(point.x, point.y);
 	});
 	// event listener on the picture block mousemove
 	picture.addEventListener('mousemove', function(e){
-		point.x = e.pageX - this.offsetLeft;
-		point.y = e.pageY - this.offsetTop;
+		var off = this.getBoundingClientRect();
+		point.x = e.pageX - off.left;
+		point.y = e.pageY - off.top - window.pageYOffset;
 		if(drowMode != false){
-			console.log(point.y);
 			ctx.lineTo(point.x, point.y);
 			ctx.stroke();
 			console.log('s');
