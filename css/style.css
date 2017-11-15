@@ -190,3 +190,15 @@ li{
 	margin-right: 10px;
 	border: 1px solid #fff;
 }
+
+/*active erase mode*/
+.erase.button.active-erase{
+	background-color: red;
+	opacity: 0.8;
+	color: #fff;
+}
+.erase.active-erase #erase{
+	background-color: red;
+	opacity: 0.8;
+	color: #fff;
+}
